@@ -127,9 +127,9 @@ Verificați funcționarea site-ului în browser, trecând la adresa http://local
 ## Concluzie
 
 În cadrul acestei lucrări de laborator am realizat o aplicație web PHP modularizată, utilizând o arhitectură multi-container Docker orchestrată cu docker-compose. Aplicația este compusă din trei servicii principale:
--- nginx – serverul web care servește conținutul static și redirecționează cererile PHP către backend;
--- php-fpm – procesatorul PHP care interpretează fișierele .php;
--- MariaDB (MySQL) – baza de date relațională utilizată pentru stocarea datelor aplicației.
+- nginx – serverul web care servește conținutul static și redirecționează cererile PHP către backend;
+- php-fpm – procesatorul PHP care interpretează fișierele .php;
+- MariaDB (MySQL) – baza de date relațională utilizată pentru stocarea datelor aplicației.
 Această abordare reflectă o bună practică în dezvoltarea modernă a aplicațiilor, oferind separare clară a responsabilităților, ușurință în testare, mentenanță și scalabilitate. De asemenea, utilizarea docker-compose permite pornirea și gestionarea facilă a întregului mediu de dezvoltare cu o singură comandă, reducând considerabil timpul de configurare manuală.
 
 ## Intrebari
@@ -137,9 +137,9 @@ Această abordare reflectă o bună practică în dezvoltarea modernă a aplica�
 1. În ce ordine sunt pornite containerele?
 
 Containerele sunt pornite conform ordinii specificate în fișierul docker-compose.yml, iar aceasta este influențată de dependențele dintre servicii și rețelele definite. 
--- database – este primul container pornit, deoarece acesta trebuie să aibă baza de date disponibilă înainte ca celelalte servicii să poată interacționa cu ea.
--- backend – se lansează după ce database este activ, deoarece serviciul PHP (backend) va interacționa cu baza de date.
--- frontend – este lansat ultima instanță, pentru că depinde de backend, care trebuie să răspundă la cererile PHP.
+- database – este primul container pornit, deoarece acesta trebuie să aibă baza de date disponibilă înainte ca celelalte servicii să poată interacționa cu ea.
+- backend – se lansează după ce database este activ, deoarece serviciul PHP (backend) va interacționa cu baza de date.
+- frontend – este lansat ultima instanță, pentru că depinde de backend, care trebuie să răspundă la cererile PHP.
 
 2. Unde sunt stocate datele bazei de date?
 
